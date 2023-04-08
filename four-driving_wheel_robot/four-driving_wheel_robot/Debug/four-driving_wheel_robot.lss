@@ -1,0 +1,217 @@
+
+four-driving_wheel_robot.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000108  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000015c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  0000015c  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000018c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000068  00000000  00000000  000001c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000777  00000000  00000000  00000230  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000605  00000000  00000000  000009a7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002f7  00000000  00000000  00000fac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000ac  00000000  00000000  000012a4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000039d  00000000  00000000  00001350  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000139  00000000  00000000  000016ed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  00001826  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 82 00 	jmp	0x104	; 0x104 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+int main(void)
+{
+    /* Replace with your application code */
+    while (1) 
+    {
+		Delay(1);
+  6c:	81 e0       	ldi	r24, 0x01	; 1
+  6e:	90 e0       	ldi	r25, 0x00	; 0
+  70:	0e 94 54 00 	call	0xa8	; 0xa8 <Delay>
+		Delay(1);
+  74:	81 e0       	ldi	r24, 0x01	; 1
+  76:	90 e0       	ldi	r25, 0x00	; 0
+  78:	0e 94 54 00 	call	0xa8	; 0xa8 <Delay>
+		Delay(1000);
+  7c:	88 ee       	ldi	r24, 0xE8	; 232
+  7e:	93 e0       	ldi	r25, 0x03	; 3
+  80:	0e 94 54 00 	call	0xa8	; 0xa8 <Delay>
+		Delay(1000);
+  84:	88 ee       	ldi	r24, 0xE8	; 232
+  86:	93 e0       	ldi	r25, 0x03	; 3
+  88:	0e 94 54 00 	call	0xa8	; 0xa8 <Delay>
+  8c:	ef cf       	rjmp	.-34     	; 0x6c <main>
+
+0000008e <TIMER_init>:
+		*value = 0x01;
+	}
+	else if ((TIFR & clear) == 1)
+	{
+		*value = 0x00;
+		TIFR |= clear;
+  8e:	93 b7       	in	r25, 0x33	; 51
+  90:	89 23       	and	r24, r25
+  92:	83 bf       	out	0x33, r24	; 51
+  94:	62 bf       	out	0x32, r22	; 50
+  96:	08 95       	ret
+
+00000098 <TIMER_start>:
+  98:	93 b7       	in	r25, 0x33	; 51
+  9a:	89 2b       	or	r24, r25
+  9c:	83 bf       	out	0x33, r24	; 51
+  9e:	08 95       	ret
+
+000000a0 <TIMER_set>:
+  a0:	82 bf       	out	0x32, r24	; 50
+  a2:	08 95       	ret
+
+000000a4 <TIMER_Stop>:
+	}
+}
+	void TIMER_Stop (void){
+		//Timer Stop
+		TCCR0 = no_clk;	
+  a4:	13 be       	out	0x33, r1	; 51
+  a6:	08 95       	ret
+
+000000a8 <Delay>:
+	}
+void Delay(uint32_t milliseconds)
+{
+  a8:	0f 93       	push	r16
+  aa:	1f 93       	push	r17
+  ac:	cf 93       	push	r28
+  ae:	df 93       	push	r29
+  b0:	8c 01       	movw	r16, r24
+	TIMER_init (normal,Intial_value);
+  b2:	66 e4       	ldi	r22, 0x46	; 70
+  b4:	87 eb       	ldi	r24, 0xB7	; 183
+  b6:	0e 94 47 00 	call	0x8e	; 0x8e <TIMER_init>
+	TIMER_start (pres_1);
+  ba:	81 e0       	ldi	r24, 0x01	; 1
+  bc:	0e 94 4c 00 	call	0x98	; 0x98 <TIMER_start>
+	uint32_t i;
+	uint8_t counter;
+	
+	for(i=0;i< milliseconds ;i++){
+  c0:	c0 e0       	ldi	r28, 0x00	; 0
+  c2:	d0 e0       	ldi	r29, 0x00	; 0
+  c4:	15 c0       	rjmp	.+42     	; 0xf0 <Delay+0x48>
+	// n = ((1000us)-(3numovflow)*(256us))/(1us)  // = 66 ticks
+	//for one millisecond delay iterate 3 times of timer overflow and 232 ticks
+	counter = 0;
+	while(counter<3){
+		
+		while((TIFR & clear) == 0);
+  c6:	08 b6       	in	r0, 0x38	; 56
+  c8:	00 fe       	sbrs	r0, 0
+  ca:	fd cf       	rjmp	.-6      	; 0xc6 <Delay+0x1e>
+		TIFR |= clear;
+  cc:	88 b7       	in	r24, 0x38	; 56
+  ce:	81 60       	ori	r24, 0x01	; 1
+  d0:	88 bf       	out	0x38, r24	; 56
+		counter++;
+  d2:	9f 5f       	subi	r25, 0xFF	; 255
+  d4:	01 c0       	rjmp	.+2      	; 0xd8 <Delay+0x30>
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+	
+	// N = (1000us)/(256u);  //=3.9 by approx. it will 3
+	// n = ((1000us)-(3numovflow)*(256us))/(1us)  // = 66 ticks
+	//for one millisecond delay iterate 3 times of timer overflow and 232 ticks
+	counter = 0;
+	while(counter<3){
+  d8:	93 30       	cpi	r25, 0x03	; 3
+  da:	a8 f3       	brcs	.-22     	; 0xc6 <Delay+0x1e>
+		while((TIFR & clear) == 0);
+		TIFR |= clear;
+		counter++;
+	}
+	// instructions time between setting ticks and timer starting count from last overflow is 16us
+	TIMER_set(ticks_214);  // 232ticks - 18us =214ticks, so substitute by 214ticks instead of 232ticks
+  dc:	8a e2       	ldi	r24, 0x2A	; 42
+  de:	0e 94 50 00 	call	0xa0	; 0xa0 <TIMER_set>
+	while ((TIFR & clear) == 0);
+  e2:	08 b6       	in	r0, 0x38	; 56
+  e4:	00 fe       	sbrs	r0, 0
+  e6:	fd cf       	rjmp	.-6      	; 0xe2 <Delay+0x3a>
+	TIFR |= clear;
+  e8:	88 b7       	in	r24, 0x38	; 56
+  ea:	81 60       	ori	r24, 0x01	; 1
+  ec:	88 bf       	out	0x38, r24	; 56
+	TIMER_init (normal,Intial_value);
+	TIMER_start (pres_1);
+	uint32_t i;
+	uint8_t counter;
+	
+	for(i=0;i< milliseconds ;i++){
+  ee:	21 96       	adiw	r28, 0x01	; 1
+  f0:	c0 17       	cp	r28, r16
+  f2:	d1 07       	cpc	r29, r17
+  f4:	80 f3       	brcs	.-32     	; 0xd6 <Delay+0x2e>
+	// instructions time between setting ticks and timer starting count from last overflow is 16us
+	TIMER_set(ticks_214);  // 232ticks - 18us =214ticks, so substitute by 214ticks instead of 232ticks
+	while ((TIFR & clear) == 0);
+	TIFR |= clear;
+	}
+	TIMER_Stop ();
+  f6:	0e 94 52 00 	call	0xa4	; 0xa4 <TIMER_Stop>
+}
+  fa:	df 91       	pop	r29
+  fc:	cf 91       	pop	r28
+  fe:	1f 91       	pop	r17
+ 100:	0f 91       	pop	r16
+ 102:	08 95       	ret
+
+00000104 <_exit>:
+ 104:	f8 94       	cli
+
+00000106 <__stop_program>:
+ 106:	ff cf       	rjmp	.-2      	; 0x106 <__stop_program>
