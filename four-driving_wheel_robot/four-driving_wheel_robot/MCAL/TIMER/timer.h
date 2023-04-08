@@ -27,5 +27,4 @@ void TIMER_set(uint8_t intial_value);
 void TIMER_getStatus(uint8_t *value);
 void TIMER_Stop (void);
 void Delay(uint32_t seconds);
-void delay_ms(uint32_t milliseconds);
 #endif /* TIMER_H_ */
