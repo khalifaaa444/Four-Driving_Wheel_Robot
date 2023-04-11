@@ -15,12 +15,13 @@
 #define zero_intial 0x00
 #define Intial_value 0x46  //25
 #define ticks_214 0x2A  //2B
+#define ticks_250 0x07  
 #define pres_1 0x01
 #define pres_8 0x02
 #define pres_64 0x03
 #define pres_256 0x04
 #define pres_1024 0x05
-#define clear 0x01
+#define clear 0x40
 void TIMER_init (uint8_t Mode,uint8_t intial_value);
 void TIMER_start (uint8_t prescaler_value);
 void TIMER_set(uint8_t intial_value);
