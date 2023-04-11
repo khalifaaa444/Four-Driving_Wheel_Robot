@@ -6,11 +6,35 @@
  */ 
 
 
+#include "../../UTILITIES/registers.h"
+#include "../DIO/dio.h"
+
 #ifndef PWM_H_
 #define PWM_H_
 
+//pwm output pin
+#define percent_30 73
+#define percent_50 127
 
-
+//pwm output pin
+#define OC0_port 'B'
+#define OC0_pin 3
+//PWM Modes
+#define NonInv_correct_phase 0x60
+//intial values
+#define no_clk 0x00
+#define zero_intial 0x00
+#define Intial_value 0x00  
+//prescaler values
+#define pres_1 0x01
+#define pres_8 0x02
+#define pres_64 0x03
+#define pres_256 0x04
+#define pres_1024 0x05
+#define clear 0x01
+void PWM_init (uint8_t Mode);
+void PWM_start (uint8_t duty_percent);
+void PWM_stop (void);
 
 
 #endif /* PWM_H_ */
