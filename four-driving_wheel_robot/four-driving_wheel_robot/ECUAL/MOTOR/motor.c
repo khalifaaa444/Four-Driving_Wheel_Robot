@@ -6,8 +6,9 @@
  */ 
 #include "Motors.h"
 
-void motors_init(PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
+void motors_init( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
 {
+	PWM_init (  NonInv_normal );
 	DIO_InitPin ( pin_motor1_F , OUTPUT );
 	DIO_InitPin ( pin_motor1_B , OUTPUT );
 	DIO_InitPin ( pin_motor2_F , OUTPUT );
@@ -15,38 +16,47 @@ void motors_init(PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_mot
 }
 
 
-void motors_forward( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
+void motors_forward( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B , uint8_t speed)
 {
+	void PWM_start ( speed );
 	DIO_WRitePin (pin_motor1_F , HIGH);
 	DIO_WRitePin (pin_motor2_F , HIGH);
 	DIO_WRitePin (pin_motor1_B , LOW);
 	DIO_WRitePin (pin_motor2_B , LOW);
+	
 }
 
 
-void motors_Backward(  PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
+void motors_Backward( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B, uint8_t speed)
 {
+	void PWM_start ( speed );
 	DIO_WRitePin (pin_motor1_F , LOW);
 	DIO_WRitePin (pin_motor2_F , LOW);
 	DIO_WRitePin (pin_motor1_B , HIGH);
 	DIO_WRitePin (pin_motor2_B , HIGH);
+	
 }
 
-void motors_right( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
+void motors_right( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B ,uint8_t speed)
 {
+	void PWM_start ( speed );
 	DIO_WRitePin (pin_motor1_F , HIGH);
 	DIO_WRitePin (pin_motor2_F , LOW);
 	DIO_WRitePin (pin_motor1_B , LOW);
 	DIO_WRitePin (pin_motor2_B , HIGH);
+	
+
 }
 
 
-void motors_left( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B )
+void motors_left( PIn_name pin_motor1_F , PIn_name pin_motor1_B ,PIn_name pin_motor2_F, PIn_name pin_motor2_B , uint8_t speed)
 {
+	void PWM_start ( speed );
 	DIO_WRitePin (pin_motor1_F , LOW);
 	DIO_WRitePin (pin_motor2_F , HIGH);
 	DIO_WRitePin (pin_motor1_B , HIGH);
 	DIO_WRitePin (pin_motor2_B , LOW);
+	
 }
 
 
